@@ -4,7 +4,7 @@
 }
 
 @font-face {
-	font-family: "Honk";
+	font-family: Honk;
 	src: url(assets/static/Honk-Regular.ttf);
 }
 
@@ -15,6 +15,7 @@ header {
 }
 
 header h1 {
+	font-family: Honk;
 	color: royalblue;
 	font-size: 80px;
 }
