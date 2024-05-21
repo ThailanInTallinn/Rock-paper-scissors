@@ -6,31 +6,31 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getPlayerChoice() {
-    let playerChoice;
-    const buttonsContainer = document.querySelector(".buttons-container");
-    buttonsContainer.addEventListener("click", (e) => {
-        switch (e.target.id) {
-            case "paper-button":
-                playerChoice = "paper";
-                break;
-            case "rock-button":
-                playerChoice = "rock";
-                console.log(playerChoice);
-                break;
-            case "scissors-button":
-                playerChoice = "scissors";
-                break;
-        }
-    })
-    return playerChoice;
-}
+const buttonsContainer = document.querySelector(".buttons-container");
+
+buttonsContainer.addEventListener("click", (e) => {
+    let playerWeapon;
+    switch (e.target.id) {
+        case "paper-button":
+            playerWeapon = "paper";
+            break;
+        case "rock-button":
+            playerWeapon = "rock";
+            break;
+        case "scissors-button":
+            playerWeapon = "scissors";
+            break;
+    }
+
+    playRound(playerWeapon, getComputerChoice());
+})
+
 
 let tieCount = 0;
 let userScore = 0;
 let computerScore = 0;
 
-let game = (player, computer) => {
+let playRound = (player, computer) => {
     if (player == computer) {
         console.log("It's a tie!");
         tieCount++;
@@ -63,9 +63,6 @@ let game = (player, computer) => {
 
 
 function playGame() {
-    const playerWeapon = getPlayerChoice();
-    const computerWeapon = getComputerChoice();
-    game(playerWeapon, computerWeapon);
 
     console.log("The score is: User " + userScore + " Computer: " + computerScore + " Ties: " + tieCount);
     if (userScore > computerScore) {
@@ -78,5 +75,4 @@ function playGame() {
 }
 
 
-playGame();
 
