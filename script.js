@@ -28,11 +28,9 @@ let tieCount = 0;
 let userScore = 0;
 let computerScore = 0;
 
+
 let playRound = (player, computer) => {
     if (player == computer) {
-        const para = document.createElement("p");
-        para.TextContent = "Empate!";
-        document.body.appendChild(para);
         tieCount++;
     } else if (player == 'rock') {
         if (computer == 'paper') {
@@ -59,5 +57,7 @@ let playRound = (player, computer) => {
             userScore++;
         }
     }
+
+    console.log(tieCount, userScore, computerScore);
 }
 
