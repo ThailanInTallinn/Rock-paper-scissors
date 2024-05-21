@@ -3,6 +3,11 @@
 	margin: 0px;
 }
 
+@font-face {
+	font-family: "Honk";
+	src: url(assets/static/Honk-Regular.ttf);
+}
+
 header {
 	display: flex;
 	justify-content: center;
