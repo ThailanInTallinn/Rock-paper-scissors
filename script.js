@@ -61,18 +61,3 @@ let playRound = (player, computer) => {
     }
 }
 
-
-function playGame() {
-
-    console.log("The score is: User " + userScore + " Computer: " + computerScore + " Ties: " + tieCount);
-    if (userScore > computerScore) {
-        console.log("%cYou are the fucking master of this game!", "background-color: green");
-    } else if (computerScore > userScore) {
-        console.log("%cYou suck! HAHAHAHAHAH", "background-color: red");
-    } else {
-        console.log("%cBoth of you suck!", "background-color: blue");
-    }
-}
-
-
-
