@@ -6,6 +6,26 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+function getPlayerChoice() {
+    let playerChoice;
+    const buttonsContainer = document.querySelector(".buttons-container");
+    buttonsContainer.addEventListener("click", (e) => {
+        switch (e.target.id) {
+            case "paper-button":
+                playerChoice = "paper";
+                break;
+            case "rock-button":
+                playerChoice = "rock";
+                console.log(playerChoice);
+                break;
+            case "scissors-button":
+                playerChoice = "scissors";
+                break;
+        }
+    })
+    return playerChoice;
+}
+
 let tieCount = 0;
 let userScore = 0;
 let computerScore = 0;
@@ -41,8 +61,9 @@ let game = (player, computer) => {
     }
 }
 
+
 function playGame() {
-    const playerWeapon = prompt('Choose your weapon', 'Rock, Paper or Scissors').toLowerCase();
+    const playerWeapon = getPlayerChoice();
     const computerWeapon = getComputerChoice();
     game(playerWeapon, computerWeapon);
 
