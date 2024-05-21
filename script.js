@@ -1,9 +1,7 @@
 function getComputerChoice() {
-    let computerChoice = Math.floor(Math.random() * 9) + 1;
-    (computerChoice >= 1 && computerChoice <= 3) ? computerChoice = "rock" :
-        (computerChoice >= 4 && computerChoice <= 6) ? computerChoice = "paper" :
-            computerChoice = "scissors";
-    return computerChoice;
+    const computerWeaponKit = ["paper", "rock", "scissors"];
+    const computerWeapon = computerWeaponKit[Math.round(Math.random() * 2)];
+    return computerWeapon;
 }
 
 const buttonsContainer = document.querySelector(".buttons-container");
@@ -32,7 +30,9 @@ let computerScore = 0;
 
 let playRound = (player, computer) => {
     if (player == computer) {
-        console.log("It's a tie!");
+        const para = document.createElement("p");
+        para.TextContent = "Empate!";
+        document.body.appendChild(para);
         tieCount++;
     } else if (player == 'rock') {
         if (computer == 'paper') {
