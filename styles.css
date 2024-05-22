@@ -1,6 +1,7 @@
 * {
 	padding: 0px;
 	margin: 0px;
+	user-select: none;
 }
 
 @font-face {
@@ -22,4 +23,8 @@ header h1 {
 	font-family: Honk;
 	color: royalblue;
 	font-size: 80px;
+}
+
+.weapon-button {
+	background: linear-gradient(180deg, rgba(255, 253, 120, 1) 18%, rgba(255, 119, 161, 1) 99%);
 }
