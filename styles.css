@@ -8,6 +8,10 @@
 	src: url(assets/static/Honk-Regular.ttf);
 }
 
+body {
+	background-color: #F2F2F2;
+}
+
 header {
 	display: flex;
 	justify-content: center;
