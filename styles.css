@@ -18,6 +18,18 @@ body {
 	background-color: #F2F2F2;
 }
 
+video {
+	height: 100vh;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: -1;
+}
+
+.video-container {
+	text-align: center;
+}
+
 header {
 	display: flex;
 	justify-content: center;
