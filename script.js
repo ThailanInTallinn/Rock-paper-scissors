@@ -72,15 +72,22 @@ let playRound = (player, computer) => {
     if (userScore === 5 || computerScore === 5) {
         results.removeChild(scoreboard);
         document.body.removeChild(buttonsContainer);
-        resultsPara.style.fontSize = "calc((82px / 100) * 147)";
+        const mediaQuery = window.matchMedia('(max-width: 430px)');
+        resultsPara.style.fontSize = mediaQuery.matches ? "42px" : "calc((82px / 100) * 147)";
+        if (mediaQuery.matches) {
+            results.style.flexWrap = "wrap";
+            results.style.width = "90%";
+            results.style.marginLeft = "auto";
+            results.style.marginRight = "auto";
+        }
         userScore === 5 ? resultsPara.textContent = "You're the master of this game" : resultsPara.textContent = "You've just lost to a fucking computer! HAHAHAHAHA";
         replayButton.classList.add("weapon-button");
         replayButton.textContent = "Play again";
         replayButton.style.marginTop = "40px";
+        results.appendChild(replayButton);
         replayButton.addEventListener("click", () => {
             window.location.reload();
-        })
-        results.appendChild(replayButton);
+        });
     }
     scoreboard.textContent = `Player: ${userScore} Computer:  ${computerScore} Ties: ${tieCount}`;
 }
