@@ -67,6 +67,6 @@ let playRound = (player, computer) => {
         }
     }
 
-    (tieCount, userScore, computerScore);
+    scoreboard.textContent = `Player: ${userScore} Computer:  ${computerScore} Ties: ${tieCount}`;
 }
 
