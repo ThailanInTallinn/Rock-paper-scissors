@@ -59,7 +59,13 @@ header h1 {
 	font-size: 36px;
 }
 
+.results {
+	display: flex;
+	justify-content: center;
+	margin-top: 90px;
+}
+
 #results-para {
 	font-family: Jaro;
-	font-size: 42px;
+	font-size: 82px;
 }
