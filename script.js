@@ -36,7 +36,7 @@ let playRound = (player, computer) => {
         tieCount++;
     } else if (player == 'rock') {
         if (computer == 'paper') {
-            resultsPara.style.color = "red";
+            resultsPara.style.color = "#fd5c63";
             resultsPara.textContent = "You lose! Paper beats rock.";
             computerScore++;
         } else if (computer == 'scissors') {
@@ -50,13 +50,13 @@ let playRound = (player, computer) => {
             resultsPara.textContent = "You won! Paper beats rock.";
             userScore++;
         } else if (computer == "scissors") {
-            resultsPara.style.color = "red";
+            resultsPara.style.color = "#fd5c63";
             resultsPara.textContent = "You lose! Scissors beats paper.";
             computerScore++;
         }
     } else if (player == 'scissors') {
         if (computer == 'rock') {
-            resultsPara.style.color = "red";
+            resultsPara.style.color = "#fd5c63";
             resultsPara.textContent = "You lose! Rock beats Scissors";
             computerScore++;
         } else if (computer == "paper") {
