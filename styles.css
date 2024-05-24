@@ -70,3 +70,46 @@ header h1 {
 	backdrop-filter: blur(10px);
 	font-size: 82px;
 }
+
+@media screen and (min-width: 1080px) {
+	video {
+		position: fixed;
+		z-index: -1;
+		width: auto;
+		height: 100%;
+		top: 0;
+		left: -5%;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	video {
+		position: fixed;
+		z-index: -1;
+		width: auto;
+		height: 100%;
+		top: 0;
+		left: -10%;
+	}
+
+}
+
+@media screen and (min-width: 430px) {
+	video {
+		position: fixed;
+		z-index: -1;
+		width: auto;
+		height: 100%;
+		top: 0;
+		left: -120%;
+	}
+
+	header {
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	header h1 {
+		font-size: 42px;
+	}
+}
