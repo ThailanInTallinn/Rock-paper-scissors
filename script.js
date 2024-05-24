@@ -30,30 +30,38 @@ let computerScore = 0;
 const resultsPara = document.querySelector("#results-para");
 
 let playRound = (player, computer) => {
+    resultsPara.textContent = '';
     if (player == computer) {
+        resultsPara.textContent = "It's a tie!";
         tieCount++;
     } else if (player == 'rock') {
         if (computer == 'paper') {
-            console.log("You lose! Paper beats rock.");
+            resultsPara.style.color = "red";
+            resultsPara.textContent = "You lose! Paper beats rock.";
             computerScore++;
         } else if (computer == 'scissors') {
-            console.log("You won! Rock beats scissors.");
+            resultsPara.style.color = "lightgreen";
+            resultsPara.textContent = "You won! Rock beats scissors.";
             userScore++
         }
     } else if (player == 'paper') {
         if (computer == 'rock') {
-            console.log("You won! Paper beats rock.");
+            resultsPara.style.color = "lightgreen";
+            resultsPara.textContent = "You won! Paper beats rock.";
             userScore++;
         } else if (computer == "scissors") {
-            console.log("You lose! Scissors beats paper.");
+            resultsPara.style.color = "red";
+            resultsPara.textContent = "You lose! Scissors beats paper.";
             computerScore++;
         }
     } else if (player == 'scissors') {
         if (computer == 'rock') {
-            console.log("You lose! Rock beats Scissors");
+            resultsPara.style.color = "red";
+            resultsPara.textContent = "You lose! Rock beats Scissors";
             computerScore++;
         } else if (computer == "paper") {
-            console.log("You won! Scissors beats paper.")
+            resultsPara.style.color = "lightgreen";
+            resultsPara.textContent = "You won! Scissors beats paper.";
             userScore++;
         }
     }
