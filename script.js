@@ -5,6 +5,7 @@ function getComputerChoice() {
 }
 
 const buttonsContainer = document.querySelector(".buttons-container");
+const replayButton = document.createElement("button");
 
 buttonsContainer.addEventListener("click", (e) => {
     let playerWeapon;
@@ -30,6 +31,7 @@ let computerScore = 0;
 const resultsPara = document.querySelector("#results-para");
 const scoreboard = document.querySelector("#scoreboard");
 const results = document.querySelector(".results");
+
 
 let playRound = (player, computer) => {
     resultsPara.textContent = '';
@@ -69,8 +71,17 @@ let playRound = (player, computer) => {
     }
     if (userScore === 5 || computerScore === 5) {
         results.removeChild(scoreboard);
+        document.body.removeChild(buttonsContainer);
+        resultsPara.style.fontSize = "calc((82px / 100) * 147)";
+        userScore === 5 ? resultsPara.textContent = "You're the master of this game" : resultsPara.textContent = "You've just lost to a fucking computer! HAHAHAHAHA";
+        replayButton.classList.add("weapon-button");
+        replayButton.textContent = "Play again";
+        replayButton.style.marginTop = "40px";
+        replayButton.addEventListener("click", () => {
+            window.location.reload();
+        })
+        results.appendChild(replayButton);
     }
     scoreboard.textContent = `Player: ${userScore} Computer:  ${computerScore} Ties: ${tieCount}`;
-
 }
 
