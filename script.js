@@ -29,6 +29,7 @@ let userScore = 0;
 let computerScore = 0;
 const resultsPara = document.querySelector("#results-para");
 const scoreboard = document.querySelector("#scoreboard");
+const results = document.querySelector(".results");
 
 let playRound = (player, computer) => {
     resultsPara.textContent = '';
@@ -66,7 +67,10 @@ let playRound = (player, computer) => {
             userScore++;
         }
     }
-
+    if (userScore === 5 || computerScore === 5) {
+        document.body.removeChild(results);
+    }
     scoreboard.textContent = `Player: ${userScore} Computer:  ${computerScore} Ties: ${tieCount}`;
+
 }
 
