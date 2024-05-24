@@ -68,7 +68,7 @@ let playRound = (player, computer) => {
         }
     }
     if (userScore === 5 || computerScore === 5) {
-        document.body.removeChild(results);
+        results.removeChild(scoreboard);
     }
     scoreboard.textContent = `Player: ${userScore} Computer:  ${computerScore} Ties: ${tieCount}`;
 
