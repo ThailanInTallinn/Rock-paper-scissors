@@ -27,7 +27,7 @@ buttonsContainer.addEventListener("click", (e) => {
 let tieCount = 0;
 let userScore = 0;
 let computerScore = 0;
-
+const resultsPara = document.querySelector("#results-para");
 
 let playRound = (player, computer) => {
     if (player == computer) {
