@@ -57,6 +57,12 @@ header h1 {
 	font-family: Honk;
 	border: 0;
 	font-size: 36px;
+	transition: 0.3s;
+}
+
+.weapon-button:active {
+	background: #01cdfe;
+	transition: 0.3s;
 }
 
 .results {
