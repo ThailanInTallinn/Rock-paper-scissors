@@ -28,6 +28,7 @@ let tieCount = 0;
 let userScore = 0;
 let computerScore = 0;
 const resultsPara = document.querySelector("#results-para");
+const scoreboard = document.querySelector("#scoreboard");
 
 let playRound = (player, computer) => {
     resultsPara.textContent = '';
@@ -66,6 +67,6 @@ let playRound = (player, computer) => {
         }
     }
 
-    console.log(tieCount, userScore, computerScore);
+    (tieCount, userScore, computerScore);
 }
 
