@@ -67,5 +67,6 @@ header h1 {
 
 #results-para {
 	font-family: Jaro;
+	backdrop-filter: blur(10px);
 	font-size: 82px;
 }
