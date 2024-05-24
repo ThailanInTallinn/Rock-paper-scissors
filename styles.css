@@ -11,6 +11,16 @@
 
 body {
 	background-color: #F2F2F2;
+
+}
+
+video {
+	position: fixed;
+	z-index: -1;
+	width: auto;
+	height: 100%;
+	top: 0;
+	left: -10%;
 }
 
 header {
