@@ -1,0 +1,150 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	user-select: none;
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: Honk;
+	src: url(assets/static/Honk-Regular.ttf);
+}
+
+@font-face {
+	font-family: Jaro;
+	src: url(assets/Jaro-Regular.ttf);
+}
+
+body {
+	background-color: #F2F2F2;
+
+}
+
+video {
+	position: fixed;
+	z-index: -1;
+	width: auto;
+	height: 100%;
+	top: 0;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header h1 {
+	font-family: Honk;
+	color: royalblue;
+	font-size: 80px;
+}
+
+.buttons-container {
+	display: flex;
+	gap: 10px;
+	width: 50%;
+	margin: auto;
+	margin-top: 70px;
+	justify-content: center;
+}
+
+.weapon-button {
+	background: linear-gradient(180deg, rgba(255, 253, 120, 1) 18%, rgba(255, 119, 161, 1) 99%);
+	width: 180px;
+	height: 80px;
+	border-radius: 8px;
+	font-family: Honk;
+	border: 0;
+	font-size: 36px;
+	transition: 0.3s;
+}
+
+.weapon-button:active {
+	background: #01cdfe;
+	transition: 0.3s;
+}
+
+.results {
+	display: flex;
+	justify-content: center;
+	margin-top: 90px;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+#results-para {
+	font-family: Jaro;
+	backdrop-filter: blur(10px);
+	font-size: 82px;
+}
+
+#scoreboard {
+	font-family: Honk;
+	font-size: 42px;
+	margin-top: 30px;
+}
+
+@media screen and (max-width: 1080px) {
+	video {
+		position: fixed;
+		z-index: -1;
+		width: auto;
+		height: 100%;
+		top: 0;
+		left: -5%;
+	}
+}
+
+@media screen and (max-width: 1440px) {
+	video {
+		position: fixed;
+		z-index: -1;
+		width: auto;
+		height: 100%;
+		top: 0;
+		left: -10%;
+	}
+
+}
+
+@media screen and (max-width: 430px) {
+	video {
+		position: fixed;
+		z-index: -1;
+		width: auto;
+		height: 100%;
+		top: 0;
+		left: -120%;
+	}
+
+	header {
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	header h1 {
+		font-size: 42px;
+	}
+
+	#results-para {
+		font-size: 52px;
+		text-align: center;
+		padding: 5px;
+	}
+
+	.buttons-container {
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
+	.buttons-container>.weapon-button {
+		width: 90%;
+	}
+
+	#scoreboard {
+		text-align: center;
+	}
+}

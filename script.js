@@ -4,63 +4,95 @@ function getComputerChoice() {
     (computerChoice >= 4 && computerChoice <= 6) ? computerChoice = "paper" :
     computerChoice = "scissors";
     return computerChoice;*/
-    let computerChoice = "rock";
-    return computerChoice;
+    const computerWeaponKit = ["paper", "rock", "scissors"];
+    const computerWeapon = computerWeaponKit[Math.round(Math.random() * 2)];
+    return computerWeapon;
 }
+
+const buttonsContainer = document.querySelector(".buttons-container");
+const replayButton = document.createElement("button");
+
+buttonsContainer.addEventListener("click", (e) => {
+    let playerWeapon;
+    switch (e.target.id) {
+        case "paper-button":
+            playerWeapon = "paper";
+            break;
+        case "rock-button":
+            playerWeapon = "rock";
+            break;
+        case "scissors-button":
+            playerWeapon = "scissors";
+            break;
+    }
+
+    playRound(playerWeapon, getComputerChoice());
+})
+
 
 let tieCount = 0;
 let userScore = 0;
 let computerScore = 0;
+const resultsPara = document.querySelector("#results-para");
+const scoreboard = document.querySelector("#scoreboard");
+const results = document.querySelector(".results");
 
-let game = (player, computer) => {
-    if(player == computer) {
-        const para = document.createElement("p");
-        para.textContent = "It's a tie";
-        document.body.appendChild(para);
+let playRound = (player, computer) => {
+    resultsPara.textContent = '';
+    if (player == computer) {
+        resultsPara.textContent = "It's a tie!";
         tieCount++;
-    } else if(player == 'rock') {
-        if(computer == 'paper'){
-            console.log("<p>You lose! Paper beats rock.<p>");
+    } else if (player == 'rock') {
+        if (computer == 'paper') {
+            resultsPara.style.color = "#fd5c63";
+            resultsPara.textContent = "You lose! Paper beats rock.";
             computerScore++;
-        } else if(computer == 'scissors') {
-            console.log("You won! Rock beats scissors.");
+        } else if (computer == 'scissors') {
+            resultsPara.style.color = "lightgreen";
+            resultsPara.textContent = "You won! Rock beats scissors.";
             userScore++
         }
-    } else if(player == 'paper') {
-        if(computer == 'rock') {
-            console.log("You won! Paper beats rock.");
+    } else if (player == 'paper') {
+        if (computer == 'rock') {
+            resultsPara.style.color = "lightgreen";
+            resultsPara.textContent = "You won! Paper beats rock.";
             userScore++;
         } else if (computer == "scissors") {
-            console.log("You lose! Scissors beats paper.");
+            resultsPara.style.color = "#fd5c63";
+            resultsPara.textContent = "You lose! Scissors beats paper.";
             computerScore++;
         }
     } else if (player == 'scissors') {
-        if(computer == 'rock') {
-            console.log("You lose! Rock beats Scissors");
+        if (computer == 'rock') {
+            resultsPara.style.color = "#fd5c63";
+            resultsPara.textContent = "You lose! Rock beats Scissors";
             computerScore++;
         } else if (computer == "paper") {
-            console.log("You won! Scissors beats paper.")
+            resultsPara.style.color = "lightgreen";
+            resultsPara.textContent = "You won! Scissors beats paper.";
             userScore++;
         }
-    } 
-}
-
-function playGame() {
-    for(let i = 0; i < 5; i++){
-        const playerWeapon = prompt('Choose your weapon', 'Rock, Paper or Scissors').toLowerCase();
-        const computerWeapon = getComputerChoice();
-        game(playerWeapon, computerWeapon);
     }
-    console.log("The score is: User " + userScore + " Computer: " + computerScore + " Ties: " + tieCount);
-    if(userScore > computerScore) {
-        console.log("%cYou are the fucking master of this game!", "background-color: green");
-    } else if(computerScore > userScore) {
-        console.log("%cYou suck! HAHAHAHAHAH", "background-color: red");
-    } else {
-        console.log("%cBoth of you suck!", "background-color: blue");
+    if (userScore === 5 || computerScore === 5) {
+        results.removeChild(scoreboard);
+        document.body.removeChild(buttonsContainer);
+        const mediaQuery = window.matchMedia('(max-width: 430px)');
+        resultsPara.style.fontSize = mediaQuery.matches ? "42px" : "calc((82px / 100) * 147)";
+        if (mediaQuery.matches) {
+            results.style.flexWrap = "wrap";
+            results.style.width = "90%";
+            results.style.marginLeft = "auto";
+            results.style.marginRight = "auto";
+        }
+        userScore === 5 ? resultsPara.textContent = "You're the master of this game" : resultsPara.textContent = "You've just lost to a fucking computer! HAHAHAHAHA";
+        replayButton.classList.add("weapon-button");
+        replayButton.textContent = "Play again";
+        replayButton.style.marginTop = "40px";
+        results.appendChild(replayButton);
+        replayButton.addEventListener("click", () => {
+            window.location.reload();
+        });
     }
+    scoreboard.textContent = `Player: ${userScore} Computer:  ${computerScore} Ties: ${tieCount}`;
 }
-
-
-playGame();
 
