@@ -1,9 +1,4 @@
 function getComputerChoice() {
-    /*let computerChoice = Math.floor(Math.random() * 9) + 1;
-    (computerChoice >= 1 && computerChoice <= 3) ? computerChoice = "rock" :
-    (computerChoice >= 4 && computerChoice <= 6) ? computerChoice = "paper" :
-    computerChoice = "scissors";
-    return computerChoice;*/
     const computerWeaponKit = ["paper", "rock", "scissors"];
     const computerWeapon = computerWeaponKit[Math.round(Math.random() * 2)];
     return computerWeapon;
